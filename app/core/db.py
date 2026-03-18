@@ -1,9 +1,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 engine = create_engine(
-    "postgresql+psycopg2://admin:555@localhost:5432/san", pool_pre_ping=True)
+    os.getenv("DB_URL"), pool_pre_ping=True)
 SessionLocal = sessionmaker(engine)
 
 

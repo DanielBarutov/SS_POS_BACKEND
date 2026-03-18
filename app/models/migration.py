@@ -1,11 +1,13 @@
 import csv
+import os
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker
 from .base import Base
 from .product import Category, Product
+from dotenv import load_dotenv
+load_dotenv()
 
-# Подключение (используем твои данные из первого скриншота)
-DATABASE_URL = "postgresql+psycopg2://admin:555@localhost:5432/san"
+DATABASE_URL = os.getenv("DB_URL")
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
@@ -13,13 +15,7 @@ SessionLocal = sessionmaker(bind=engine)
 
 def migrate():
     session = SessionLocal()
-    try:
-        print("Создание таблиц...")
-        Base.metadata.create_all(bind=engine)
-        print("Таблицы созданы")
-    except Exception as e:
-        print(f"Произошла ошибка при создании таблиц: {e}")
-        return
+    
 
     try:
         # 1. ЗАГРУЗКА КАТЕГОРИЙ
