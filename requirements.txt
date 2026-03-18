@@ -1,0 +1,11 @@
+sqlalchemy
+sqlalchemy.orm
+alembic
+uvicorn
+fastapi[standard]
+psycopg[binary]
+psycopg2-binary
+pydantic
+pytest
+Pillow
+qrcode
