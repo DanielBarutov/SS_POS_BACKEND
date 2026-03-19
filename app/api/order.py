@@ -124,7 +124,7 @@ def get_orders(db: Session = Depends(get_db)):
         orders_with_details.append(order_data)
 
     if not orders:
-        raise HTTPException(404, "Orders not found")
+        return []
 
     return orders_with_details
 

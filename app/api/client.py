@@ -45,9 +45,9 @@ def list_clients(db: Session = Depends(get_db)):
     clients = db.execute(select(Client).options(
         selectinload(Client.addresses))).scalars().all()
     if not clients:
-        raise HTTPException(404, "Clients not found")
-
-    return clients
+        return []
+    else:
+        return clients
 
 
 @router.get("/client/{client_id}", tags=["Client"], response_model=ClientGet)

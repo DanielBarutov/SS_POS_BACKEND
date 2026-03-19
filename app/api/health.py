@@ -14,4 +14,4 @@ async def check_version():
 @router.get("/health", tags=["DEV"])
 async def check_health():
     return f"""ALL IS FINE!
-            PROJECT - SUSHISAN"""
+            PROJECT - SS BACKEND"""
