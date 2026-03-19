@@ -103,14 +103,17 @@ def print_bitmap(img):
 
 
 def print_stats_data_check(income_cash: float|None = None, income_card: float|None = None, total_orders: int|None = None, income_total: float|None = None, income_average: float|None = None):
-    header = f"SUSHI SAN\nул. Славы, 25\n{datetime.now().strftime('%d.%m.%Y %H:%M')}"
-    items_text = "\n\n"
-    items_text += f"Наличными: {Decimal(income_cash).quantize(Decimal('0.00'))} руб\n"
-    items_text += f"Картами: {Decimal(income_card).quantize(Decimal('0.00'))} руб\n"
-    items_text += f"Приход за день: {Decimal(income_total).quantize(Decimal('0.00'))} руб\n"
-    items_text += f"Средний чек: {Decimal(income_average).quantize(Decimal('0.00'))} руб\n"
-    items_text += f"Кол-во заказов: {total_orders}\n"
-    
-    img = build_receipt(header, items_text)
-    print_bitmap(img)
 
+        
+            header = f"SUSHI SAN\nул. Славы, 25\n{datetime.now().strftime('%d.%m.%Y %H:%M')}"
+            items_text = "\n\n"
+            items_text += f"Наличными: {Decimal(income_cash).quantize(Decimal('0.00'))} руб\n"
+            items_text += f"Картами: {Decimal(income_card).quantize(Decimal('0.00'))} руб\n"
+            items_text += f"Приход за день: {Decimal(income_total).quantize(Decimal('0.00'))} руб\n"
+            items_text += f"Средний чек: {Decimal(income_average).quantize(Decimal('0.00'))} руб\n"
+            items_text += f"Кол-во заказов: {total_orders}\n"
+            
+            img = build_receipt(header, items_text)
+        
+            print_bitmap(img)
+            
